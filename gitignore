@@ -1,0 +1,9 @@
+./backend/node_modules
+./backend/.env
+
+./front-end/node_modules
+./front-end/.env
+
+./super-admin/node_modules
+./super-admin/.env
+
