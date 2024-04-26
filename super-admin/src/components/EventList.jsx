@@ -33,7 +33,7 @@ if (Array.isArray(getData?.data?.data)) {
       short_desc: item.short_desc,
       long_desc: item.long_desc,
       posted_by: item.posted_by.email,
-      type: item.type,
+      type: item?.category_id?.name,
       types_of_event:item.types_of_event,
       from_date: item.from_date_to_date,
       tags: item.tags,
