@@ -1,14 +1,25 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getEventCategory } from "../redux/slice/eventCategorySlice";
+import categoryWiseEvent from "../redux/slice/categoryWiseEvent";
 
 const Home = () => {
   const dispatch = useDispatch();
   const getData = useSelector((state) => state.eventCategory);
+  const dataOfEventWise = useSelector((state) => state.eventWiseCategory);
+  console.log(dataOfEventWise,"event wise data");
+  
   console.log(getData, "getdatatatata");
   useEffect(() => {
     dispatch(getEventCategory());
+   
   }, []);
+
+  const handleChange=(e)=>{
+
+    // dispatch(categoryWiseEvent(e.target.value))
+
+  }
 
   const footerData = {
     companyName: "Event Management System",
@@ -53,12 +64,12 @@ const Home = () => {
                 </a>
               </li>
 
-              <select className="nav-item">
+              <select className="nav-item" onChange={(e)=>handleChange(e)}>
                 <option selected disabled>
                   Event-category
                 </option>
                 {getData?.data?.data?.map((item, index) => (
-                  <option key={index} value={item.value}>
+                  <option key={index} value={item.value} >
                     {item.name}
                   </option>
                 ))}
